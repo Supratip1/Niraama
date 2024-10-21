@@ -1,0 +1,45 @@
+/* AnimatedMessage.css */
+.animated-message-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  width: 100%; /* Ensure it takes up the full width */
+}
+
+.dot {
+  width: 20px;  /* Larger dot for better visibility */
+  height: 20px;
+  border-radius: 50%;
+  background-color: black;
+  position: absolute;
+  left: 650px;  /* Adjusted position of the dot to start further left */
+  top: 30%;
+  transform: translateY(-50%);
+  transition: transform 0.1s linear; /* Smooth transition as the dot moves */
+  z-index: 1;
+}
+
+.animated-message {
+  animation: fadeIn 1s ease-out, fadeOut 1s ease-out forwards 5s; /* 5s delay before fadeOut */
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade Out Animation */
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}  

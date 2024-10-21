@@ -1,0 +1,213 @@
+/* General styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+  overflow: hidden; /* Prevent overall scrolling */
+}
+
+* {
+  box-sizing: inherit;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+.w-full {
+  width: 100%;
+}
+
+/* Footer styles */
+.footer {
+  position: fixed; /* Ensure footer stays at the bottom */
+  bottom: 0; /* Align footer to bottom */
+  left: 0; /* Align footer to left */
+  right: 0; /* Align footer to right */
+  padding: 0.5rem; /* Adjust padding */
+  background-color: #fff; /* Background color for visibility */
+  z-index: 100; /* Keep footer above other content */
+}
+
+.footer input[type="text"] {
+  width: 100%;
+  padding: 0.75rem; /* Adjusted padding */
+  padding-left: 4rem; /* Space for the attachment icon */
+  padding-right: 10rem; /* Increased spacing for voice and send icons */
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  outline: none;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.footer button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.footer button img {
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s ease;
+}
+
+/* Attachment Button */
+.footer button.attachment {
+  left: 1rem;
+}
+
+/* Voice Button */
+.footer button.voice {
+  right: 8rem; /* Moved further right */
+}
+
+/* Send Button */
+.footer button.send {
+  right: 2rem; /* Adjust send button position */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .footer input[type="text"] {
+    font-size: 14px;
+    padding-left: 3.5rem; /* Adjust padding for smaller screens */
+    padding-right: 8.5rem; /* Adjusted padding for smaller screens */
+  }
+
+  .footer button img {
+    width: 20px; /* Smaller icon size */
+    height: 20px;
+  }
+
+  .footer button.attachment {
+    left: 0.75rem; /* Adjust icon position */
+  }
+
+  .footer button.voice {
+    right: 6.5rem; /* Adjust for smaller screens */
+  }
+
+  .footer button.send {
+    right: 1.5rem; /* Adjust send button position */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer input[type="text"] {
+    font-size: 12px;
+    padding-left: 3rem; /* Even smaller padding */
+    padding-right: 7rem; /* Further increased padding */
+  }
+
+  .footer button img {
+    width: 16px; /* Even smaller icon size */
+    height: 16px;
+  }
+
+  .footer button.attachment {
+    left: 0.5rem; /* Adjust icon position for smaller screens */
+  }
+
+  .footer button.voice {
+    right: 5rem; /* Adjust for smaller screens */
+  }
+
+  .footer button.send {
+    right: 0.5rem;
+  }
+}
+
+/* Animated message styles */
+.animated-message {
+  animation: fadeIn 1s forwards;
+  opacity: 0; /* Initial opacity for fading in */
+  transition: opacity 1s ease; /* Smooth transition for fading out */
+}
+
+.fade-out {
+  animation: fadeOut 1s forwards; /* Use the fadeOut animation */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.ripple-effect {
+  position: absolute; /* Position relative to the parent */
+  border-radius: 50%;
+  background: rgba(0, 255, 0, 0.5); /* Ripple color */
+  width: 100px; /* Initial size of the ripple */
+  height: 100px; /* Initial size of the ripple */
+  animation: ripple 1s ease-out; /* Animation duration */
+  pointer-events: none; /* Prevent interaction with the ripple */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Offset to center */
+  z-index: 0; /* Ensure it's below the microphone icon */
+  opacity: 0; /* Start hidden */
+}
+
+@keyframes ripple {
+  from {
+    transform: translate(-50%, -50%) scale(0); /* Scale from 0 */
+    opacity: 1; /* Start fully opaque */
+  }
+  to {
+    transform: translate(-50%, -50%) scale(2); /* Scale to 2 times */
+    opacity: 0; /* Fade out */
+  }
+}
+.Welcome{
+  font-family: 'Inter', sans-serif;
+  font-size: 2rem; /* Change to desired size */
+  font-weight: 400;
+}
+/* Single-line truncation with ellipsis */
+.truncate-text {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Multi-line truncation */
+.truncate-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* Change this value to control the number of lines */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
